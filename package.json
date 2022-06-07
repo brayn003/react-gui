@@ -5,6 +5,9 @@
   "author": "Rudraprasad Das <brayn003@gmail.com>",
   "license": "MIT",
   "private": true,
+  "scripts": {
+    "dev": "turbo run dev"
+  },
   "workspaces": [
     "packages/*",
     "apps/*"

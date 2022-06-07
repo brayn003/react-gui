@@ -1,4 +1,10 @@
 {
     "$schema": "https://turborepo.org/schema.json",
-    "baseBranch": "origin/master"
+    "baseBranch": "origin/master",
+    "pipeline": {
+        "dev": {
+            "dependsOn": ["^dev"],
+            "outputs": [".next/**"]
+        }
+    }
 }
