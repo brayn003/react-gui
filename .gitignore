@@ -55,6 +55,6 @@ out
 
 # turbo
 .turbo
-build/**
-dist/**
-.next/**
+build/
+dist/
+.next/
