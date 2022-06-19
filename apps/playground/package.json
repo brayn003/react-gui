@@ -1,6 +1,6 @@
 {
-  "name": "playground",
-  "version": "0.1.0",
+  "name": "@react-gui/playground",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@react-gui/core": "^0.0.1",
+    "@react-gui/input": "^0.0.1",
     "next": "12.1.6",
     "react": "18.1.0",
     "react-dom": "18.1.0"
