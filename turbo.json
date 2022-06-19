@@ -3,7 +3,11 @@
     "baseBranch": "origin/master",
     "pipeline": {
         "dev": {
-            "dependsOn": ["^dev"],
+            "dependsOn": ["build"],
+            "cache": false
+        },
+        "build": {
+            "dependsOn": ["^build"],
             "outputs": ["dist/**", ".next/**"],
             "inputs": ["src/**/*.tsx", "src/**/*.ts", "test/**/*.ts"]
         }

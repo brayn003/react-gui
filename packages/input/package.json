@@ -2,8 +2,10 @@
   "name": "@react-gui/input",
   "version": "0.0.1",
   "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
   "license": "MIT",
   "dependencies": {
+    "@react-gui/core": "^0.0.1",
     "@react-gui/typescript": "^0.0.1",
     "styled-components": "^5.3.5"
   },

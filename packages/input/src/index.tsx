@@ -53,7 +53,7 @@ const Container = styled.div`
   display: flex;
   border-style: solid;
   border-width: 1px;
-  border-color: #666;
+  border-color: #000;
   will-change: border-color;
   transition: border-color 0.1s linear;
 
@@ -64,7 +64,7 @@ const Container = styled.div`
 
 const StyledInput = styled.input`
   border: none;
-  flex: 1;
+  width: 100%;
   height: 100%;
   background-color: transparent;
   padding: 0;
