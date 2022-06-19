@@ -1,4 +1,12 @@
 {
   "extends": "@react-gui/typescript/tsconfig",
-  "include": ["./src/**/*"]
+  "include": ["./src/**/*"],
+  "exclude": ["dist"],
+  "compilerOptions": {
+    "outDir": "./dist",
+    "declaration": true,
+    "declarationDir": "./types.d",
+    "emitDeclarationOnly": true,
+    "sourceMap": true
+  }
 }
