@@ -1,26 +1,24 @@
-import React, { FC, ReactNode, ComponentPropsWithRef, ForwardRefRenderFunction, forwardRef, useRef, useState, ReactElement }           from 'react';
-import styled                                            from 'styled-components';
+import React, { ForwardedRef, forwardRef, ForwardRefExoticComponent } from 'react';
+import styled from 'styled-components';
+import { InputProps } from './index.types';
 
 const DISABLED_TEXT = '#BBBBBB';
 
-interface InputProps extends Omit<ComponentPropsWithRef<'input'>, 'onChange' | 'prefix'> {
-  prefix?: ReactNode;
-  suffix?: ReactNode;
-  onChange?: (value: string) => void;
-}
-type InputComponent = ForwardRefRenderFunction<FC, InputProps>;
-
-const Input: InputComponent = ({
+/**
+ * @name Input
+ * @description Component to render field for textual input
+ * @param props - Input Props
+ * @param ref - HTMLInputElement ref
+ */
+const Input = forwardRef<HTMLInputElement, InputProps>(({
   placeholder,
   value,
-  onChange = (v) => {},
+  onChange = () => {},
   prefix = null,
   suffix = null,
   disabled = false,
   style,
-  ref,
-}) => {
-
+}, ref) => {
   return (
     <Container style={style}>
       {prefix && (
@@ -45,7 +43,7 @@ const Input: InputComponent = ({
       )}
     </Container>
   );
-};
+});
 
 
 const Container = styled.div`
@@ -98,4 +96,4 @@ const InputContainer = styled.div`
   flex: 1;
 `;
 
-export default forwardRef<HTMLInputElement, InputProps>((props, ref) => <Input {...props} ref={ref} />);
+export default Input;

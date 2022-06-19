@@ -7,7 +7,7 @@ function Home() {
       <Head>React GUI</Head>
       <h1>React GUI</h1>
       <p>Input</p>
-      <Input placeholder="Hi there" />
+      <Input  />
     </div>
   )
 }
