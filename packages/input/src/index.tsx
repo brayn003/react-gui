@@ -1,11 +1,12 @@
-import React, { ForwardedRef, forwardRef, ForwardRefExoticComponent } from 'react';
+import React, { forwardRef } from 'react';
 import styled from 'styled-components';
+
+import { mergeClassNames } from '@react-gui/core';
+
 import { InputProps } from './index.types';
 
-const DISABLED_TEXT = '#BBBBBB';
-
 /**
- * @name Input
+ * Input Component
  * @description Component to render field for textual input
  * @param props - Input Props
  * @param ref - HTMLInputElement ref
@@ -18,82 +19,63 @@ const Input = forwardRef<HTMLInputElement, InputProps>(({
   suffix = null,
   disabled = false,
   style,
+  className,
 }, ref) => {
   return (
-    <Container style={style}>
+    <Container className={mergeClassNames('rui--input-container', className)} style={style}>
       {prefix && (
-        <SideContainer>
+        <SideContainer className='rui--input-side-container'>
           {prefix}
         </SideContainer>
       )}
-      <InputContainer>
-        <StyledInput
-          size={1} // necessary to cope up with input min width issue
-          ref={ref}
-          onChange={(e) => { onChange(e.target.value); }}
-          placeholder={placeholder}
-          value={value}
-          disabled={disabled}
-        />
-      </InputContainer>
+      <StyledInput
+        ref={ref}
+        className='rui--input-control'
+        size={1} // necessary to cope up with input min width issue
+        onChange={(e) => { onChange(e.target.value); }}
+        placeholder={placeholder}
+        value={value}
+        disabled={disabled}
+      />
       {suffix && (
-      <SideContainer>
-        {suffix}
-      </SideContainer>
+        <SideContainer className='rui--input-side-container'>
+          {suffix}
+        </SideContainer>
       )}
     </Container>
   );
 });
 
-
 const Container = styled.div`
   width: 100%;
   display: flex;
-  border-style: solid;
-  border-width: 1px;
-  border-color: #000;
-  will-change: border-color;
-  transition: border-color 0.1s linear;
+  align-items: center;
 
-  &:hover {
-    border-color: #333;
-  }
+  /* debug */
+  border: 1px dashed #AEAEAE;
 `;
 
 const StyledInput = styled.input`
-  border: none;
-  width: 100%;
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+  padding: 0;
+  flex: 1;
   height: 100%;
   background-color: transparent;
-  padding: 0;
-  color: inherit;
-  font-size: inherit;
+  outline: 0;
+  
+  /* debug */
+  border: 1px dashed #BEBEBE;
 
-  &:active, &:focus {
-    outline: 0;
-  }
-
-  &::placeholder {
-    color: #DDDDDD;
-  }
-
-  :disabled {
-    color: ${DISABLED_TEXT};
-  }
 `;
 
 
 const SideContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0 8px;
+  /* debug */
+  border: 1px dashed #BEBEBE;
 `;
 
-const InputContainer = styled.div`
-  position: relative;
-  align-items: center;
-  flex: 1;
-`;
 
 export default Input;

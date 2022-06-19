@@ -1,11 +1,15 @@
 /**
  * Merge multiple classnames
- * @param {[string|number]} classNames - Array of classnames to be merged
+ * @param classNames - Array of classnames to be merged
  * @returns Merged Classname String
  */
-const mergeClassNames = (...classNames: string[] | number[]): string => {
-  const stringedClassNames : string[] = classNames.map((cl) => cl.toString());
-  const mergedClassName : string = stringedClassNames.join(' ');
+const mergeClassNames = (...classNames: any[]): string => {
+  let mergedClassName = '';
+  classNames.forEach((className) => {
+    if(className) {
+      mergedClassName += ` ${className.toString()}`;
+    }
+  })
   return mergedClassName;
 };
 

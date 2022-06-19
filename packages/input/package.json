@@ -8,15 +8,15 @@
   "dependencies": {
     "@react-gui/core": "^0.0.1",
     "@react-gui/eslint-config": "^0.0.1",
-    "@react-gui/typescript": "^0.0.1",
-    "styled-components": "^5.3.5"
+    "@react-gui/typescript": "^0.0.1"
   },
   "scripts": {
     "dev": "rollup -cw",
     "build": "rollup -c"
   },
   "peerDependencies": {
-    "react": "^18.1.0"
+    "react": "^18.1.0",
+    "styled-components": "^5.3.5"
   },
   "devDependencies": {
     "@react-gui/eslint-config": "^0.0.1",
@@ -32,6 +32,7 @@
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-terser": "^7.0.2",
-    "typescript": "^4.7.3"
+    "typescript": "^4.7.3",
+    "styled-components": "^5.3.5"
   }
 }
